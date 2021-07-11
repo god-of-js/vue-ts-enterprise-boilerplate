@@ -25,7 +25,7 @@ export default class Home extends Vue {}
   align-items: center;
   justify-content: center;
   &__card {
-    width: 30%;
+    width: 35%;
     margin: auto;
   }
 }

@@ -1,12 +1,26 @@
 <script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
+import { Component, Vue, Prop } from "vue-property-decorator";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
+import { library as fontAwesomeIconLibrary } from "@fortawesome/fontawesome-svg-core";
+import { faUser, faLock } from "@fortawesome/free-solid-svg-icons";
+fontAwesomeIconLibrary.add(faUser, faLock);
 
-@Component
-export default class extends Vue {}
+@Component({
+  components: {
+    FontAwesomeIcon,
+  },
+})
+export default class extends Vue {
+  @Prop({ required: true }) iconName!: string;
+  @Prop({ default: "font-awesome" }) iconSource!: string;
+}
 </script>
 
 <template>
-  <div></div>
+  <span>
+    <FontAwesomeIcon v-if="iconSource === 'font-awesome'" :icon="iconName" />
+    <i :class="iconSource + ' ' + iconName" v-else></i>
+  </span>
 </template>
 
-<style scoped></style>
+<style module></style>

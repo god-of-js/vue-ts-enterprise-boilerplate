@@ -1,35 +1,24 @@
-import { shallowMount } from "@vue/test-utils";
-import BaseButton from "./_base-button.vue";
+import { shallowMount, mount } from "@vue/test-utils";
+import BaseIcon from "./_base-icon.vue";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
-describe("@/components/_base-button.vue", () => {
-  it("Renders default slot", () => {
-    const slotContent = "<span>Register </span>";
-    const { element } = shallowMount(BaseButton, {
-      slots: {
-        default: slotContent,
-      },
-    });
-    expect(element.innerHTML).toContain(slotContent);
-  });
-  it("Button loads when loading set to true, and slot is hidden", () => {
-    const loadingElement = "<span>Loading.... </span>";
-    const { element } = shallowMount(BaseButton, {
+describe("@/components/_base-icon.vue", () => {
+  // it("renders font-awesome icon by default", () => {
+  //   const wrapper = mount(BaseIcon, {
+  //     propsData: {
+  //       iconName: "faUser"
+  //     }
+  //   });
+  //   expect(wrapper.findComponent(FontAwesomeIcon).exists()).toBe(true);
+  // });
+  it("renders custom icon when type not font-awesome", () => {
+    const wrapper = shallowMount(BaseIcon, {
       propsData: {
-        loading: true,
+        iconSource: "mdi",
+        iconName: "mdi-user",
       },
     });
-    expect(element.innerHTML).toContain(loadingElement);
-  });
-  it("Check if slot is removed when loading is triggered", () => {
-    const slotContent = "<span>Register </span>";
-    const { element } = shallowMount(BaseButton, {
-      propsData: {
-        loading: true,
-      },
-      slots: {
-        default: slotContent,
-      },
-    });
-    expect(element.innerHTML).not.toContain(slotContent);
+    const i = wrapper.find("i");
+    expect(i.classes()).toContain("mdi-user");
   });
 });
