@@ -37,3 +37,9 @@ All component tests should be kept in the the components folder and saved in the
 [ComponentName].spec.ts
 
 ```
+
+## Styling
+Styles would make use of module instead of scoped to avoid clashing class names when the project gets bigger.
+
+## 3RD party or vendor components
+3rd party components or vendor components like fontawesome should be wrapped in a component before use. In case of change or extension of component.

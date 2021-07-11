@@ -6,7 +6,18 @@ export default class extends Vue {}
 </script>
 
 <template>
-  <div></div>
+  <div :class="$style.login">
+    <form action="submit" :class="$style.login__form">
+      <base-input />
+      <base-input />
+      <base-button>SIGN IN</base-button>
+    </form>
+  </div>
 </template>
 
-<style scoped></style>
+<style module lang="scss">
+.login {
+  &__form {
+  }
+}
+</style>
