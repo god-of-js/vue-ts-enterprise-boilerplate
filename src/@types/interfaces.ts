@@ -2,5 +2,7 @@ interface User {
   email: string;
   password: string;
 }
-
-export { User };
+interface Headers {
+  authorization?: string;
+}
+export { User, Headers };

@@ -35,5 +35,6 @@ export default class BaseButton extends Vue {
 }
 .u-disabled {
   opacity: 0.6;
+  cursor: not-allowed;
 }
 </style>
