@@ -1,16 +1,23 @@
 <template>
   <div id="app">
-    <app-top-navigation />
+    <app-top-navigation v-if="isAuthenticated" />
     <router-view :key="$route.fullPath" />
   </div>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { mapGetters } from "vuex";
+import storeVariables from "@/store/storeVariables.types";
 const AppTopNavigation = () => import("./components/AppTopNavigation.vue");
 @Component({
   components: {
     AppTopNavigation,
+  },
+  computed: {
+    ...mapGetters({
+      isAuthenticated: storeVariables.IS_AUTHENTICATED_GETTER,
+    }),
   },
 })
 export default class App extends Vue {}

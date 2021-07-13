@@ -1,13 +1,25 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import { mapState } from "vuex";
 
 @Component({
-  name: "ViewUser",
+  computed: {
+    ...mapState(["currentUser"]),
+  },
 })
 export default class ViewUser extends Vue {}
 </script>
+
 <template>
-  <div></div>
+  <pre>
+    {{ currentUser }}
+  </pre>
 </template>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import "@/assets/styles/colors.scss";
+pre {
+  height: 100vh;
+  color: $white;
+}
+</style>

@@ -8,12 +8,23 @@ export default new Vuex.Store({
     activeModal: "ModalShowUserId",
     currentUser: null,
   },
-  mutations: {},
-  getters: {
-    [variables.IS_AUTHENTICATED_GETTER]() {
-      console.log(variables);
+  mutations: {
+    [variables.SET_USER_DETAILS_MUTATION](state, data) {
+      state.currentUser = data;
     },
   },
-  actions: {},
+  getters: {
+    [variables.IS_AUTHENTICATED_GETTER](state) {
+      return state.currentUser === null ? false : true;
+    },
+  },
+  actions: {
+    [variables.LOGIN_ACTION](context, data) {
+      // Commiting from an action because word on the streets is that with future updates to
+      // there might be less support for mutations. hence, keeping all commits in the store would
+      // bring less commits.
+      context.commit(variables.SET_USER_DETAILS_MUTATION, data);
+    },
+  },
   modules: {},
 });

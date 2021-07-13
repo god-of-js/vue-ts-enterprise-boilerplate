@@ -42,7 +42,7 @@ export default class BaseModal extends Vue {
     <modal-card>
       <div :class="$style['u-flex-end']">
         <base-button styleType="c-base-button--transparent" @click="closeModal"
-          >CLOSE</base-button
+          >CLOSE or PRESS ESC</base-button
         >
       </div>
       <component :is="activeModal" />

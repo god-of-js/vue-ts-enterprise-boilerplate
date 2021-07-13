@@ -1,6 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { USER_LOGIN_MUTATION } from "@/queries/queries";
+import storeVariables from "@/store/storeVariables.types";
 import { User } from "@/@types/interfaces";
 import { emailValidator } from "@/helpers/RegexValidators";
 @Component({
@@ -30,6 +31,8 @@ export default class extends Vue {
         },
       });
       console.log(data);
+      this.$store.dispatch(storeVariables.LOGIN_ACTION, data.loginUser);
+      this.showModal = true;
       this.loading = false;
     } catch (err) {
       this.loading = false;
