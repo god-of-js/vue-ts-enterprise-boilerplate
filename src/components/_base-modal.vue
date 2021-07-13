@@ -30,6 +30,11 @@ export default class BaseModal extends Vue {
       }
     });
   }
+  beforeDestroy(): void {
+    document.removeEventListener("keydown", () => {
+      console.log("component destroyed.");
+    });
+  }
 
   closeModal(): void {
     this.$emit("closeModal");
@@ -41,7 +46,10 @@ export default class BaseModal extends Vue {
   <modal-container>
     <modal-card>
       <div :class="$style['u-flex-end']">
-        <base-button styleType="c-base-button--transparent" @click="closeModal"
+        <base-button
+          styleType="c-base-button--transparent"
+          @click="closeModal"
+          class="js-modal-button"
           >CLOSE or PRESS ESC</base-button
         >
       </div>

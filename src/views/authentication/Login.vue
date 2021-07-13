@@ -1,7 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { USER_LOGIN_MUTATION } from "@/queries/queries";
-import storeVariables from "@/store/storeVariables.types";
+import { LOGIN_ACTION } from "@/store/storeVariables.types";
 import { User } from "@/@types/interfaces";
 import { emailValidator } from "@/helpers/RegexValidators";
 @Component({
@@ -23,15 +22,7 @@ export default class extends Vue {
   public async login(): Promise<void> {
     this.loading = true;
     try {
-      const { data } = await this.$apollo.mutate({
-        mutation: USER_LOGIN_MUTATION,
-        variables: {
-          emailAddress: this.data.emailAddress,
-          password: this.data.password,
-        },
-      });
-      console.log(data);
-      this.$store.dispatch(storeVariables.LOGIN_ACTION, data.loginUser);
+      await this.$store.dispatch(LOGIN_ACTION, this.data);
       this.showModal = true;
       this.loading = false;
     } catch (err) {

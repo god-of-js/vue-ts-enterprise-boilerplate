@@ -8,7 +8,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
-import storeVariables from "@/store/storeVariables.types";
+import { IS_AUTHENTICATED_GETTER } from "@/store/storeVariables.types";
 const AppTopNavigation = () => import("./components/AppTopNavigation.vue");
 @Component({
   components: {
@@ -16,7 +16,7 @@ const AppTopNavigation = () => import("./components/AppTopNavigation.vue");
   },
   computed: {
     ...mapGetters({
-      isAuthenticated: storeVariables.IS_AUTHENTICATED_GETTER,
+      isAuthenticated: IS_AUTHENTICATED_GETTER,
     }),
   },
 })

@@ -1,7 +1,14 @@
 import Vue from "vue";
 import Vuex from "vuex";
-import variables from "./storeVariables.types";
+import {
+  LOGIN_ACTION,
+  IS_AUTHENTICATED_GETTER,
+  SET_USER_DETAILS_MUTATION,
+} from "./storeVariables.types";
+import { apolloProvider } from "@/apollo";
+import { USER_LOGIN_MUTATION } from "@/queries/queries";
 Vue.use(Vuex);
+const { defaultClient } = apolloProvider;
 // Based on size of the project, I decided not to use module based vuex.
 export default new Vuex.Store({
   state: {
@@ -9,21 +16,32 @@ export default new Vuex.Store({
     currentUser: null,
   },
   mutations: {
-    [variables.SET_USER_DETAILS_MUTATION](state, data) {
+    [SET_USER_DETAILS_MUTATION](state, data) {
       state.currentUser = data;
     },
   },
   getters: {
-    [variables.IS_AUTHENTICATED_GETTER](state) {
+    [IS_AUTHENTICATED_GETTER](state) {
       return state.currentUser === null ? false : true;
     },
   },
   actions: {
-    [variables.LOGIN_ACTION](context, data) {
-      // Commiting from an action because word on the streets is that with future updates to
-      // there might be less support for mutations. hence, keeping all commits in the store would
-      // bring less commits.
-      context.commit(variables.SET_USER_DETAILS_MUTATION, data);
+    [LOGIN_ACTION](context, userDetails) {
+      return new Promise((resolve, reject) => {
+        defaultClient
+          .mutate({
+            mutation: USER_LOGIN_MUTATION,
+            variables: {
+              emailAddress: userDetails.emailAddress,
+              password: userDetails.password,
+            },
+          })
+          .then(({ data }) => {
+            context.commit(SET_USER_DETAILS_MUTATION, data.loginUser);
+            return resolve(data);
+          })
+          .catch((err) => reject(err.message));
+      });
     },
   },
   modules: {},
