@@ -21,5 +21,6 @@ export default class ViewUser extends Vue {}
 pre {
   height: 100vh;
   color: $white;
+  text-align: left;
 }
 </style>
