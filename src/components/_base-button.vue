@@ -5,13 +5,20 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class BaseButton extends Vue {
   @Prop({ default: false }) loading!: boolean;
   @Prop({ default: false }) disabled!: boolean;
+  @Prop({
+    default: "c-base-button",
+    validator: (value) =>
+      ["c-base-button", "c-base-button--transparent"].includes(value),
+  })
+  styleType!: string;
 }
 </script>
 
 <template>
   <button
     v-on="$listeners"
-    :class="[$style['c-base-button'], disabled ? $style['u-disabled'] : '']"
+    :class="[$style[styleType], disabled ? $style['u-disabled'] : '']"
+    :disabled="disabled"
   >
     <slot v-if="!loading" />
     <span v-else>Loading.... </span>
@@ -32,6 +39,12 @@ export default class BaseButton extends Vue {
   border: transparent;
   cursor: pointer;
   color: $white;
+}
+.c-base-button--transparent {
+  background: transparent;
+  border: transparent;
+  color: $white;
+  cursor: pointer;
 }
 .u-disabled {
   opacity: 0.6;

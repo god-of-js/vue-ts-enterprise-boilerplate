@@ -1,0 +1,12 @@
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class extends Vue {}
+</script>
+
+<template>
+  <div>User Id:</div>
+</template>
+
+<style scoped></style>

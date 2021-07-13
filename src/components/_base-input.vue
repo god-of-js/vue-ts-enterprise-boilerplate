@@ -11,18 +11,21 @@ export default class extends Vue {
   @Prop({ required: true }) label!: string;
   @Prop({ default: "text" }) type!: string;
   @Prop({}) icon!: string;
+  @Prop({ required: true }) identifier!: string;
 }
 </script>
 
 <template>
   <fieldset :class="$style['c-base-input__container']">
-    <label for="input" :class="$style['u-hidden']">{{ label }}</label>
+    <!-- Adding a label for screen readers but hiding it because it's not needed for the UI -->
+    <label :for="identifier" :class="$style['u-hidden']">{{ label }}</label>
     <div :class="$style['u-flex']">
       <div :class="$style['c-base-input__icon-container']">
         <base-icon :iconName="icon" />
       </div>
       <input
         :class="$style['c-base-input__input']"
+        :id="identifier"
         v-on="$listeners"
         :type="type"
         @input="$emit('update', $event.target.value)"

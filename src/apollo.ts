@@ -6,17 +6,15 @@ import VueApollo from "vue-apollo";
 import { Headers } from "@/@types/interfaces";
 
 const getHeaders = () => {
-  const headers: Headers = {};
-  //
-  const token = "93f78ce7-5728-4010-b741-a628d1e4f425";
-  if (token) {
-    headers.authorization = `Bearer ${token}`;
-  }
+  const headers: Headers = {
+    "x-hasura-admin-secret":
+      "BQtEGz42aqDN5AyfAYJUrUDa5h6qniZsDin2sDrMvaysHBQ96fUWmy1cBBeUKMwd",
+  };
   return headers;
 };
 // Create an http link:
 const link = new HttpLink({
-  uri: "https://solytic-login.free.beeceptor.com/api/graphql ",
+  uri: "https://solytic-test.hasura.app/v1/graphql",
   fetch,
   headers: getHeaders(),
 });

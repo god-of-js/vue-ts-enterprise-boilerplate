@@ -1,6 +1,6 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
-import { LOGIN_USER } from "@/queries/queries";
+import { USER_LOGIN_MUTATION } from "@/queries/queries";
 import { User } from "@/@types/interfaces";
 import { emailValidator } from "@/helpers/RegexValidators";
 @Component({
@@ -8,27 +8,33 @@ import { emailValidator } from "@/helpers/RegexValidators";
 })
 export default class extends Vue {
   data: User = {
-    email: "",
+    emailAddress: "",
     password: "",
   };
   loading = false;
+  showModal = false;
   get buttonState(): boolean {
     return !(
-      emailValidator.test(this.data.email) && this.data.password.length >= 8
+      emailValidator.test(this.data.emailAddress) &&
+      this.data.password.length >= 8
     );
   }
   public async login(): Promise<void> {
     this.loading = true;
-    await this.$apollo.mutate({
-      mutation: LOGIN_USER,
-      variables: {
-        user: this.data,
-      },
-      update: (cache, { data: { insert_todos } }) => {
-        console.log(insert_todos);
-      },
-    });
-    this.loading = false;
+    try {
+      const { data } = await this.$apollo.mutate({
+        mutation: USER_LOGIN_MUTATION,
+        variables: {
+          emailAddress: this.data.emailAddress,
+          password: this.data.password,
+        },
+      });
+      console.log(data);
+      this.loading = false;
+    } catch (err) {
+      this.loading = false;
+      alert(err);
+    }
   }
 }
 </script>
@@ -37,11 +43,12 @@ export default class extends Vue {
   <div>
     <form action="submit" @submit.prevent="login">
       <base-input
-        v-model="data.email"
+        v-model="data.emailAddress"
         label="username"
         icon="user"
         placeholder="Username"
         type="email"
+        identifier="email"
       />
       <base-input
         v-model="data.password"
@@ -49,6 +56,7 @@ export default class extends Vue {
         icon="lock"
         type="password"
         placeholder="Password"
+        identifier="password"
         :class="$style['u-margin-top']"
       />
       <base-button
@@ -61,6 +69,8 @@ export default class extends Vue {
     <div :class="$style['u-margin-top']">
       Not a member? <base-link routeName="Register">Sign Up now</base-link>
     </div>
+    <!--Base modal is kept here because this is the only place it is used. In a real application scenario, it would be put in a more global file. -->
+    <base-modal @closeModal="showModal = false" v-if="showModal" />
   </div>
 </template>
 

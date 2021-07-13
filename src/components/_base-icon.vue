@@ -17,10 +17,7 @@ export default class extends Vue {
 </script>
 
 <template>
-  <span>
-    <FontAwesomeIcon v-if="iconSource === 'font-awesome'" :icon="iconName" />
-    <i :class="iconSource + ' ' + iconName" v-else></i>
-  </span>
+  <FontAwesomeIcon v-if="iconSource === 'font-awesome'" :icon="iconName" />
 </template>
 
 <style module></style>

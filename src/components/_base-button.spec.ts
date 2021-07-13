@@ -11,7 +11,7 @@ describe("@/components/_base-button.vue", () => {
     });
     expect(element.innerHTML).toContain(slotContent);
   });
-  it("Button loads when loading set to true, and slot is hidden", () => {
+  it("Button loads when loading set to true", () => {
     const loadingElement = "<span>Loading.... </span>";
     const { element } = shallowMount(BaseButton, {
       propsData: {

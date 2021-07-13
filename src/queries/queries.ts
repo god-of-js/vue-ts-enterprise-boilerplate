@@ -1,15 +1,17 @@
 import gql from "graphql-tag";
-const LOGIN_USER = gql`
-  mutation LoginUser($user: UserLoginInput!) {
-    loginUser(user: $user) {
-      user {
-        id
-      }
+const USER_LOGIN_MUTATION = gql`
+  mutation ($emailAddress: String!, $password: String!) {
+    loginUser(object: { password: $password, emailAddress: $emailAddress }) {
       accessToken {
         token
         tokenType
       }
+      user {
+        emailAddress
+        id
+        password
+      }
     }
   }
 `;
-export { LOGIN_USER };
+export { USER_LOGIN_MUTATION };
