@@ -24,6 +24,7 @@ export default class BaseModal extends Vue {
     // Adding close on escape for keyboard users.
     document.addEventListener("keydown", function (event) {
       if (event.key === "Escape") {
+        // Making use of invokeClose here because `this` and IIFE's are not available at this point.
         invokeClose();
         // Property 'closeModal' does not exist on type 'Document'
         // this.closeModal();

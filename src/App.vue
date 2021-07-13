@@ -1,6 +1,8 @@
 <template>
   <div id="app">
     <app-top-navigation v-if="isAuthenticated" />
+    <!-- Adding a key to all routes it best practice. it also helps incase there is a route 
+    with dynamic parameters, it helps the route re-render when the fullPath changes.-->
     <router-view :key="$route.fullPath" />
   </div>
 </template>
