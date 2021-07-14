@@ -5,7 +5,7 @@ describe("@/components/_base-link.vue", () => {
     const slotContent = "<span>Register </span>";
     const { element } = shallowMount(BaseLink, {
       propsData: {
-        name: "Register",
+        routeName: "Login",
       },
       slots: {
         default: slotContent,

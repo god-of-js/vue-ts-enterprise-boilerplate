@@ -6,5 +6,15 @@ interface Headers {
   authorization?: string;
   "x-hasura-admin-secret": string;
 }
-
-export { User, Headers };
+interface CurrentUserInterface {
+  accessToken: {
+    token: string;
+    tokenType: string;
+  };
+  user: {
+    emailAddress: string;
+    id: string;
+    password: string;
+  };
+}
+export { User, Headers, CurrentUserInterface };

@@ -10,7 +10,7 @@ fontAwesomeIconLibrary.add(faUser, faLock);
     FontAwesomeIcon,
   },
 })
-export default class extends Vue {
+export default class BaseIcon extends Vue {
   @Prop({ required: true }) iconName!: string;
   @Prop({ default: "font-awesome" }) iconSource!: string;
 }

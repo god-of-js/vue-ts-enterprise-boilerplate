@@ -7,7 +7,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
     event: "update",
   },
 })
-export default class extends Vue {
+export default class BaseInput extends Vue {
   @Prop({ required: true }) label!: string;
   @Prop({ default: "text" }) type!: string;
   @Prop({}) icon!: string;

@@ -1,7 +1,9 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-@Component
+@Component({
+  name: "BaseButton",
+})
 export default class BaseButton extends Vue {
   @Prop({ default: false }) loading!: boolean;
   @Prop({ default: false }) disabled!: boolean;

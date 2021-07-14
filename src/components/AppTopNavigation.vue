@@ -1,3 +1,10 @@
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+@Component
+export default class AppTopNavigation extends Vue {}
+</script>
+
 <template>
   <nav>
     <ul>
@@ -7,13 +14,6 @@
     </ul>
   </nav>
 </template>
-
-<script lang="ts">
-import { Component, Vue } from "vue-property-decorator";
-
-@Component
-export default class AppTopNavigation extends Vue {}
-</script>
 
 <style scoped lang="scss">
 ul {

@@ -8,3 +8,4 @@ export const LOGIN_ACTION = "login";
 
 // GETTERS
 export const IS_AUTHENTICATED_GETTER = "isAuthenticated";
+export const GET_USER_ID_GETTER = "getUserId";
