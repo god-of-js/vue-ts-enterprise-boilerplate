@@ -1,8 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { LOGIN_ACTION } from "@/store/storeVariables.types";
-import { User } from "@/@types/interfaces";
-import { emailValidator } from "@/helpers/RegexValidators";
+import { User } from "@/types/interfaces";
 @Component({
   name: "Login",
 })
@@ -15,7 +14,7 @@ export default class extends Vue {
   showModal = false;
   get buttonState(): boolean {
     return !(
-      emailValidator.test(this.data.emailAddress) &&
+      /\S+@\S+\.\S+/.test(this.data.emailAddress) &&
       this.data.password.length >= 8
     );
   }

@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import ModalShowUserId from "./ModalShowUserId.vue";
+import ModalShowUserId from "./modal/ModalShowUserId.vue";
 describe("@/components/ModalShowUserId.vue", () => {
   it("should render currentUser's ID", () => {
     const { element } = shallowMount(ModalShowUserId, {

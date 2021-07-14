@@ -1,9 +1,10 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapState } from "vuex";
-import ModalContainer from "./ModalContainer.vue";
-import ModalCard from "./ModalCard.vue";
-import ModalShowUserId from "./ModalShowUserId.vue";
+import ModalContainer from "../modal/ModalContainer.vue";
+import ModalCard from "../modal/ModalCard.vue";
+import ModalShowUserId from "../modal/ModalShowUserId.vue";
+const MyModalCollection: Array<string> = ["ModalShowUserId"];
 @Component({
   name: "BaseModal",
   components: {
@@ -36,7 +37,11 @@ export default class BaseModal extends Vue {
       console.log("component destroyed.");
     });
   }
-
+  getPresentModal(): string {
+    return MyModalCollection.includes(this.activeModal)
+      ? this.activeModal
+      : "ModalShowUserId"; // "ModalShowUserId" is the default modal if the modal does not exist
+  }
   closeModal(): void {
     this.$emit("closeModal");
   }
@@ -54,7 +59,7 @@ export default class BaseModal extends Vue {
           >CLOSE or PRESS ESC</base-button
         >
       </div>
-      <component :is="activeModal" />
+      <component :is="getPresentModal()" />
     </modal-card>
   </modal-container>
 </template>

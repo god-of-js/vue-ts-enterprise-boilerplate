@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import BaseButton from "./_base-button.vue";
+import BaseButton from "./base-components/_base-button.vue";
 
 describe("@/components/_base-button.vue", () => {
   it("Renders default slot", () => {

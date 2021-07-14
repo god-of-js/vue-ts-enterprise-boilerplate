@@ -16,7 +16,7 @@ export default class BaseLink extends Vue {
 </template>
 
 <style module lang="scss">
-@import "../assets/styles/colors.scss";
+@import "../../assets/styles/colors.scss";
 .c-base-link {
   color: $white;
 }

@@ -28,7 +28,7 @@ export default class BaseButton extends Vue {
 </template>
 
 <style lang="scss" module>
-@import "../assets/styles/colors.scss";
+@import "../../assets/styles/colors.scss";
 .c-base-button {
   width: 100%;
   box-sizing: border-box;

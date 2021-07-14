@@ -1,7 +1,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapState } from "vuex";
-import { CurrentUserInterface } from "@/@types/interfaces";
+import { CurrentUserInterface } from "@/types/interfaces";
 @Component({
   computed: {
     ...mapState(["currentUser"]),

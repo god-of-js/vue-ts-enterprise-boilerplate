@@ -36,7 +36,7 @@ export default class BaseInput extends Vue {
 </template>
 
 <style lang="scss" module>
-@import "../assets/styles/colors.scss";
+@import "../../assets/styles/colors.scss";
 .c-base-input__container {
   border: 0;
   padding: 0px;

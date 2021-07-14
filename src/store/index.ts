@@ -6,7 +6,7 @@ import {
   SET_USER_DETAILS_MUTATION,
 } from "./storeVariables.types";
 import { apolloProvider } from "@/apollo";
-import { USER_LOGIN_MUTATION } from "@/queries/queries";
+import { USER_LOGIN_MUTATION } from "@/graphql/mutations";
 Vue.use(Vuex);
 const { defaultClient } = apolloProvider;
 // Based on size of the project, I decided not to use module based vuex.
@@ -22,11 +22,11 @@ export default new Vuex.Store({
   },
   getters: {
     [IS_AUTHENTICATED_GETTER](state) {
-      return state.currentUser === null ? false : true;
+      return state.currentUser ?? false;
     },
   },
   actions: {
-    [LOGIN_ACTION](context, userDetails) {
+    [LOGIN_ACTION]({ commit }, userDetails) {
       return new Promise((resolve, reject) => {
         defaultClient
           .mutate({
@@ -37,7 +37,7 @@ export default new Vuex.Store({
             },
           })
           .then(({ data }) => {
-            context.commit(SET_USER_DETAILS_MUTATION, data.loginUser);
+            commit(SET_USER_DETAILS_MUTATION, data.loginUser);
             return resolve(data);
           })
           .catch((err) => reject(err.message));

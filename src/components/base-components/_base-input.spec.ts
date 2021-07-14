@@ -1,5 +1,5 @@
 import { mount } from "@vue/test-utils";
-import BaseInput from "./_base-input.vue";
+import BaseInput from "./base-components/_base-input.vue";
 
 describe("@/components/_base-input.vue", () => {
   it("works with v-model", () => {
