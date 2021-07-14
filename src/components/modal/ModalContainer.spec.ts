@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import ModalContainer from "./modal/ModalContainer.vue";
+import ModalContainer from "./ModalContainer.vue";
 
 describe("@/components/ModalContainer.vue", () => {
   it("Renders default slot", () => {

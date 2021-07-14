@@ -49,8 +49,8 @@ export default class BaseModal extends Vue {
 </script>
 
 <template>
-  <modal-container>
-    <modal-card>
+  <modal-container @click="closeModal">
+    <modal-card @click.stop="">
       <div :class="$style['u-flex-end']">
         <base-button
           styleType="c-base-button--transparent"

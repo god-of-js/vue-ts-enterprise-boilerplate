@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import BaseButton from "./base-components/_base-button.vue";
+import BaseButton from "./_base-button.vue";
 
 describe("@/components/_base-button.vue", () => {
   it("Renders default slot", () => {
@@ -11,7 +11,7 @@ describe("@/components/_base-button.vue", () => {
     });
     expect(element.innerHTML).toContain(slotContent);
   });
-  it("Button loads when loading set to true", () => {
+  it("Button loads when loading is set to true", () => {
     const loadingElement = "<span>Loading.... </span>";
     const { element } = shallowMount(BaseButton, {
       propsData: {

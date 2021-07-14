@@ -4,7 +4,6 @@ import { HttpLink } from "apollo-link-http";
 import { InMemoryCache } from "apollo-cache-inmemory";
 import VueApollo from "vue-apollo";
 import { Headers } from "@/types/interfaces";
-
 const getHeaders = () => {
   const headers: Headers = {
     //
@@ -14,7 +13,7 @@ const getHeaders = () => {
 };
 // Create an http link:
 const link = new HttpLink({
-  uri: "https://solytic-test.hasura.app/v1/graphql",
+  uri: process.env.VUE_APP_BASE_URL,
   fetch,
   headers: getHeaders(),
 });
