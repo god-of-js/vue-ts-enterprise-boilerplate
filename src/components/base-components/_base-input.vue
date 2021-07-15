@@ -18,7 +18,7 @@ export default class BaseInput extends Vue {
 <template>
   <fieldset :class="$style['c-base-input__container']">
     <!-- Adding a label for screen readers but hiding it because it's not needed for the UI -->
-    <label :for="identifier" :class="$style['u-hidden']">{{ label }}</label>
+    <label :for="identifier" v-show="false">{{ label }}</label>
     <div :class="$style['u-flex']">
       <div :class="$style['c-base-input__icon-container']">
         <base-icon :iconName="icon" />
@@ -26,6 +26,7 @@ export default class BaseInput extends Vue {
       <input
         :class="$style['c-base-input__input']"
         :id="identifier"
+        :name="identifier"
         ref="input"
         v-on="$listeners"
         :type="type"
@@ -41,10 +42,6 @@ export default class BaseInput extends Vue {
 .c-base-input__container {
   border: 0;
   padding: 0px;
-}
-.u-hidden {
-  opacity: 0;
-  font-size: 0px;
 }
 .u-flex {
   display: flex;
