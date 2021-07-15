@@ -34,7 +34,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-  ],
+, "src/components/base-components/_base-input.spec.ts"  ],
   "exclude": [
     "node_modules"
   ]

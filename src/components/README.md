@@ -39,7 +39,7 @@ All component tests should be kept in the the components folder and saved in the
 ```
 
 ## Styling
-Styles would make use of module instead of scoped to avoid clashing class names when the project gets bigger.
+Styles would make use of module instead of scoped to avoid clashing class names when the project gets bigger. when modules are used, the generated class name follows the format COMPONENT-NAME_class-name_HASH e.g _base-button_u-disabled_39823
 
 ## 3RD party or vendor components
 3rd party components or vendor components like fontawesome should be wrapped in a component before use. In case of change or extension of component.

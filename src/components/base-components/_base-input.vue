@@ -26,6 +26,7 @@ export default class BaseInput extends Vue {
       <input
         :class="$style['c-base-input__input']"
         :id="identifier"
+        ref="input"
         v-on="$listeners"
         :type="type"
         @input="$emit('update', $event.target.value)"
