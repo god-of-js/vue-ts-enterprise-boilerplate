@@ -12,7 +12,7 @@ export default class ViewUser extends Vue {}
 
 <template>
   <pre>
-    {{ currentUser }}
+    {{ currentUser }} <!-- Leaving the raw value to assert that it is the same format requested.-->
   </pre>
 </template>
 
