@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 // import { mount } from "@vue/test-utils";
 // import BaseIcon from "./_base-icon.vue";
 

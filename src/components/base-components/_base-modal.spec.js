@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
 import BaseModal from "./_base-modal.vue";
 describe("@/components/_base-modal.vue", () => {

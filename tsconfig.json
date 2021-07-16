@@ -12,6 +12,7 @@
     "allowSyntheticDefaultImports": true,
     "sourceMap": true,
     "baseUrl": ".",
+    "outDir": "./testing",
     "types": [
       "webpack-env",
       "jest"
@@ -34,7 +35,7 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx"
-, "src/components/base-components/_base-input.spec.ts"  ],
+, "src/components/base-components/_base-button.spec.js", "src/components/base-components/_base-input.spec.js", "src/components/base-components/_base-icon.spec.js", "src/components/base-components/_base-link.spec.js", "src/components/base-components/_base-modal.spec.js", "src/components/modal/ModalCard.spec.js", "src/components/modal/ModalContainer.spec.js", "src/components/modal/ModalShowUserId.spec.js"  ],
   "exclude": [
     "node_modules"
   ]

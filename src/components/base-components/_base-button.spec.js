@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
 import BaseButton from "./_base-button.vue";
 

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
 import BaseLink from "./_base-link.vue";
 describe("@/components/_base-link.vue", () => {

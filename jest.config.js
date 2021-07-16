@@ -1,9 +1,10 @@
 module.exports = {
-  testMatch: ["**/(*.)spec.ts"],
+  testMatch: ["**/(*.)spec.js"],
   moduleFileExtensions: ["js", "ts", "json", "vue"],
   transform: {
     "^.+\\.vue$": "vue-jest",
     "^.+\\.ts$": "babel-jest",
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
     ".+\\.(css|scss|jpe?g|png|gif|webp|svg|mp4|webm|ogg|mp3|wav|flac|aac|woff2?|eot|ttf|otf)$":
       "jest-transform-stub",
   },
