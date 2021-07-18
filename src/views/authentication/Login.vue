@@ -41,7 +41,9 @@ export default class extends Vue {
         icon="user"
         placeholder="Username"
         type="email"
-        identifier="email"
+        id="email"
+        name="email"
+        autofocus="true"
       />
       <base-input
         v-model="data.password"
@@ -49,13 +51,15 @@ export default class extends Vue {
         icon="lock"
         type="password"
         placeholder="Password"
-        identifier="password"
+        id="password"
+        name="password"
         :class="$style['u-margin-top']"
       />
       <base-button
         :class="$style['u-margin-top']"
         :disabled="buttonState"
         :loading="loading"
+        type="submit"
         >SIGN IN</base-button
       >
     </form>
