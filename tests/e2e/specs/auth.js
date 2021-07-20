@@ -20,22 +20,12 @@ describe("@/views/authentication/login", () => {
     cy.get(":button").should("not.be.disabled");
   });
   it("Successful login invokes a modal", () => {
-    cy.visit("/");
-    // Inputting correct details.
-    cy.get('input[name="email"]').type("user@name.com");
-    cy.get('input[name="password"]').type("password");
     // Submit the login form
     cy.contains("button", "SIGN IN").click();
     cy.get("#modal", { timeout: 10000 }).should("exist");
   });
   it("Modal closes when close button is clicked.", () => {
-    cy.visit("/");
-    // Inputting correct details.
-    cy.get('input[name="email"]').type("user@name.com");
-    cy.get('input[name="password"]').type("password");
-    // Submit the login form to activate the modal.
-    cy.contains("button", "SIGN IN").click();
-    // Close the modal.
+    // // Close the modal.
     cy.contains("button", "CLOSE or PRESS ESC").click();
     cy.get("#modal").should("not.exist");
   });
