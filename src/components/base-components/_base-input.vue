@@ -10,6 +10,7 @@ import { Component, Vue, Prop } from "vue-property-decorator";
 export default class BaseInput extends Vue {
   @Prop({ required: true }) label!: string;
   @Prop({}) icon!: string;
+  @Prop({}) identifier!: string;
 }
 </script>
 
@@ -27,6 +28,8 @@ export default class BaseInput extends Vue {
         v-on="$listeners"
         @input="$emit('update', $event.target.value)"
         v-bind="{ ...$attrs, ...$props }"
+        :name="identifier"
+        :id="identifier"
       />
     </div>
   </fieldset>

@@ -9,13 +9,13 @@ import { CurrentUserInterface } from "@/types/interfaces";
 })
 export default class ModalShowUserId extends Vue {
   checkCurrentUser(user: CurrentUserInterface): string {
-    return user ? user.user.id : "No id for this user. try logging in.";
+    return user ? user.id : "No id for this user. try logging in.";
   }
 }
 </script>
 
 <template>
-  <div>User Id:{{ checkCurrentUser(currentUser) }}</div>
+  <div id="user-id">User Id:{{ checkCurrentUser(currentUser) }}</div>
 </template>
 
 <style scoped></style>

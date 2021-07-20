@@ -41,8 +41,7 @@ export default class extends Vue {
         icon="user"
         placeholder="Username"
         type="email"
-        id="email"
-        name="email"
+        identifier="email"
         autofocus="true"
       />
       <base-input
@@ -51,8 +50,7 @@ export default class extends Vue {
         icon="lock"
         type="password"
         placeholder="Password"
-        id="password"
-        name="password"
+        identifier="password"
         :class="$style['u-margin-top']"
       />
       <base-button

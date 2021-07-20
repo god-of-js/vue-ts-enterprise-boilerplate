@@ -49,7 +49,7 @@ export default class BaseModal extends Vue {
 </script>
 
 <template>
-  <modal-container @click="closeModal">
+  <modal-container @click="closeModal" id="modal">
     <modal-card @click.stop="">
       <div :class="$style['u-flex-end']">
         <base-button

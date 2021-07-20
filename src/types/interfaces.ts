@@ -7,14 +7,12 @@ interface Headers {
   "x-hasura-admin-secret": string;
 }
 interface CurrentUserInterface {
-  accessToken: {
+  access_token: {
     token: string;
     tokenType: string;
   };
-  user: {
-    emailAddress: string;
-    id: string;
-    password: string;
-  };
+  emailAddress: string;
+  id: string;
+  password: string;
 }
 export { User, Headers, CurrentUserInterface };
