@@ -7,7 +7,7 @@ to: "src/components/<%= name  %>.spec.js"
 %>
 /* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
-import <%= importName %> from "./<%= importName %>";
+import <%= importName %> from "./<%= importName %>.vue";
 
 describe("@components/<%= name %>", () => {
   it("Write a test here", () => {
