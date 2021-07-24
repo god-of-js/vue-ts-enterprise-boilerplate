@@ -2,7 +2,19 @@
 
 ## Naming convention
 
-The components that have the tendency of being used round the application have the _base- prefix attached. We are dynamically importing them using webpacks require.context() hence all base components should follow this convention. All other components should be names using a capitalized convention e.g AppModal.
+The components that have the tendency of being used round the application have the 'Base' prefix attached i.e BaseInput. We are dynamically importing the global compponents using webpacks require.context() hence all base or global components should follow this convention. All other components should be named using a pascalcase convention e.g AppModal.
+
+## Automation
+
+All components should be created using the command:
+
+```
+
+hygen component new [ComponentName]
+
+```
+
+Component name should follow the naming convention above.This command would
 
 ## SFC structure
 
@@ -39,7 +51,16 @@ All component tests should be kept in the the components folder and saved in the
 ```
 
 ## Styling
-Styles would make use of module instead of scoped to avoid clashing class names when the project gets bigger. when modules are used, the generated class name follows the format COMPONENT-NAME_class-name_HASH e.g _base-button_u-disabled_39823
+
+Styles would make use of module instead of scoped to avoid clashing class names when the project gets bigger. when modules are used, the generated class name follows the format COMPONENT-NAME_class-name_HASH e.g _base-button_u-disabled_39823.
+Variables should be imported from the styles directory using:
+
+```
+
+@import "@/styles"
+
+```
 
 ## 3RD party or vendor components
+
 3rd party components or vendor components like fontawesome should be wrapped in a component before use. In case of change or extension of component.

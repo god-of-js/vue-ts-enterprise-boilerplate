@@ -1,12 +1,12 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapState } from "vuex";
-import ModalContainer from "../modal/ModalContainer.vue";
-import ModalCard from "../modal/ModalCard.vue";
-import ModalShowUserId from "../modal/ModalShowUserId.vue";
+import ModalContainer from "./ModalContainer.vue";
+import ModalCard from "./ModalCard.vue";
+import ModalShowUserId from "./ModalShowUserId.vue";
 const MyModalCollection: Array<string> = ["ModalShowUserId"];
 @Component({
-  name: "BaseModal",
+  name: "ModalMain",
   components: {
     ModalContainer,
     ModalCard,
@@ -16,7 +16,7 @@ const MyModalCollection: Array<string> = ["ModalShowUserId"];
     ...mapState(["activeModal"]),
   },
 })
-export default class BaseModal extends Vue {
+export default class ModalMain extends Vue {
   activeModal!: string;
   mounted(): void {
     const invokeClose = () => {

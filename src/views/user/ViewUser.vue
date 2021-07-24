@@ -17,7 +17,7 @@ export default class ViewUser extends Vue {}
 </template>
 
 <style scoped lang="scss">
-@import "@/assets/styles/colors.scss";
+@import "@/styles";
 pre {
   height: 100vh;
   color: $white;

@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import { mount } from "@vue/test-utils";
-import BaseInput from "./_base-input.vue";
+import BaseInput from "./BaseInput.vue";
 
-describe("@/components/_base-input.vue", () => {
+describe("@/components/BaseInput.vue", () => {
   it("works with v-model", () => {
     const wrapper = mount(BaseInput, {
       propsData: { value: "aaa", label: "input" },

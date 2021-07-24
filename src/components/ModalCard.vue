@@ -12,7 +12,7 @@ export default class ModalCard extends Vue {}
 </template>
 
 <style module lang="scss">
-@import "../../assets/styles/colors.scss";
+@import "@/styles";
 .c-modal-card {
   border-radius: 5px;
   background: $brown;

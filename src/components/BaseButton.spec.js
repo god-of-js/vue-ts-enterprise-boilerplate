@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
-import BaseButton from "./_base-button.vue";
+import BaseButton from "./BaseButton.vue";
 
-describe("@/components/_base-button.vue", () => {
+describe("@/components/BaseButton.vue", () => {
   it("Renders default slot", () => {
     const slotContent = "<span>Register </span>";
     const { element } = shallowMount(BaseButton, {

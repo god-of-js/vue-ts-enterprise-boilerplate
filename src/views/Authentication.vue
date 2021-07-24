@@ -16,7 +16,7 @@ export default class Home extends Vue {}
 </template>
 
 <style lang="scss" module>
-@import "../assets/styles/colors.scss";
+@import "@/styles";
 .authentication {
   background: $base-color;
   height: 100vh;

@@ -1,20 +1,11 @@
-<template>
-  <div id="app">
-    <app-top-navigation v-if="isAuthenticated" />
-    <!-- Adding a key to all routes it best practice. it also helps incase there is a route 
-    with dynamic parameters, it helps the route re-render when the fullPath changes.-->
-    <router-view :key="$route.fullPath" />
-  </div>
-</template>
-
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import { mapGetters } from "vuex";
 import { IS_AUTHENTICATED_GETTER } from "@/store/storeVariables.types";
-const AppTopNavigation = () => import("./components/AppTopNavigation.vue");
+const TheTopNavigation = () => import("./components/TheTopNavigation.vue");
 @Component({
   components: {
-    AppTopNavigation,
+    TheTopNavigation,
   },
   computed: {
     ...mapGetters({
@@ -25,8 +16,17 @@ const AppTopNavigation = () => import("./components/AppTopNavigation.vue");
 export default class App extends Vue {}
 </script>
 
+<template>
+  <div id="app">
+    <the-top-navigation v-if="isAuthenticated" />
+    <!-- Adding a key to all routes it best practice. it also helps incase there is a route 
+    with dynamic parameters, it helps the route re-render when the fullPath changes.-->
+    <router-view :key="$route.fullPath" />
+  </div>
+</template>
+
 <style lang="scss">
-@import "./assets/styles/colors.scss";
+@import "./styles";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,9 +1,9 @@
 /* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
-import BaseModal from "./_base-modal.vue";
-describe("@/components/_base-modal.vue", () => {
+import ModalMain from "./ModalMain.vue";
+describe("@/components/ModalMain.vue", () => {
   it("Modal close button should trigger event when clicked.", () => {
-    const wrapper = shallowMount(BaseModal, {
+    const wrapper = shallowMount(ModalMain, {
       computed: {
         activeModal() {
           return "ModalShowUserId";

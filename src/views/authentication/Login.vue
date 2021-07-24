@@ -2,8 +2,12 @@
 import { Component, Vue } from "vue-property-decorator";
 import { LOGIN_ACTION } from "@/store/storeVariables.types";
 import { User } from "@/types/interfaces";
+import ModalMain from "@/components/ModalMain.vue";
 @Component({
   name: "Login",
+  components: {
+    ModalMain,
+  },
 })
 export default class extends Vue {
   data: User = {
@@ -65,7 +69,7 @@ export default class extends Vue {
       Not a member? <base-link routeName="Register">Sign Up now</base-link>
     </div>
     <!--Base modal is kept here because this is the only place it is used. In a real application scenario, it would be put in a more global file. -->
-    <base-modal @closeModal="showModal = false" v-if="showModal" />
+    <modal-main @closeModal="showModal = false" v-if="showModal" />
   </div>
 </template>
 

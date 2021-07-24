@@ -37,7 +37,6 @@ export default new Vuex.Store({
             },
           })
           .then(({ data }) => {
-            console.log(data.loginUser);
             commit(SET_USER_DETAILS_MUTATION, data.loginUser);
             return resolve(data);
           })
