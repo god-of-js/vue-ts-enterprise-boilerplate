@@ -1,5 +1,5 @@
 import { RouteConfig } from "vue-router";
-import Authentication from "@/views/Authentication.vue";
+import Authentication from "@/layout/Authentication.vue";
 const routes: RouteConfig = {
   path: "/",
   component: Authentication,

@@ -1,5 +1,5 @@
 ---
-to: "src/components/<%=  h.changeCase.pascal(name) %>.spec.js"
+to: "src/router/modules/<%=  h.changeCase.pascal(name) %>.spec.js"
 ---
 <%
   const importName = h.changeCase.pascal(name)

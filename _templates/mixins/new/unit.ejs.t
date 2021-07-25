@@ -1,5 +1,5 @@
 ---
-to: "src/components/<%=  h.changeCase.pascal(name) %>.spec.js"
+to: "src/mixins/<%=  h.changeCase.pascal(name) %>.spec.js"
 ---
 <%
   const importName = h.changeCase.pascal(name)
@@ -7,9 +7,9 @@ to: "src/components/<%=  h.changeCase.pascal(name) %>.spec.js"
 %>
 /* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
-import <%= importName %> from "./<%= importName %>.vue";
+import <%= importName %> from "./<%= importName %>";
 
-describe("@components/<%= h.changeCase.pascal(name) %>", () => {
+describe("@/mixins/<%= name %>", () => {
   it("Write a test here", () => {
     const { element } = shallowMount(<%= importName %>, {});
     // Write tests here
