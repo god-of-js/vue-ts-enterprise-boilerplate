@@ -26,6 +26,7 @@ if (blocks.indexOf('template') !== -1) {
 if (blocks.indexOf('style') !== -1) {
 %>
 <style lang="scss" module>
+  @import "@/styles";
   .c-<%= h.changeCase.kebab(name).toLowerCase() %>{}
 </style>
 <%
