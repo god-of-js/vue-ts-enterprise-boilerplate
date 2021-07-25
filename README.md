@@ -30,5 +30,9 @@ yarn test:e2e
 yarn lint
 ```
 
+### Style Guide
+
+This project strives to follow the reccomended style guide. See [Vue Style Guide](https://v3.vuejs.org/style-guide/#style-guide)
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).

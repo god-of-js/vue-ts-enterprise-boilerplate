@@ -7,7 +7,7 @@ to: "src/router/modules/<%=  h.changeCase.pascal(name) %>.spec.js"
 %>
 /* eslint-disable no-undef */
 import { shallowMount } from "@vue/test-utils";
-import <%= importName %> from "./<%= importName %>.vue";
+import <%= importName %> from "./<%= importName %>.ts";
 
 describe("@components/<%= h.changeCase.pascal(name) %>", () => {
   it("Write a test here", () => {

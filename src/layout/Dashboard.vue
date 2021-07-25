@@ -10,3 +10,8 @@ export default class Dashboard extends Vue {}
 <template>
   <div :class="$style['c-dashboard']"></div>
 </template>
+
+<style lang="scss" module>
+.c-dashboard {
+}
+</style>

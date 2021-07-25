@@ -2,9 +2,9 @@
 import { shallowMount } from "@vue/test-utils";
 import Dashboard from "./Dashboard.vue";
 
-describe("@components/dashboard", () => {
+describe("@/layout/Dashboard", () => {
   it("Write a test here", () => {
-    // const { element } = shallowMount(Dashboard, {});
+    const { element } = shallowMount(Dashboard, {});
     // Write tests here
   });
 });
