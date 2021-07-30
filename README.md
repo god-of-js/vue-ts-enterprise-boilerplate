@@ -1,4 +1,4 @@
-# solytic
+# vue-ts-enterprise-boilerplate
 
 ## Project setup
 ```
